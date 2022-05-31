@@ -1,0 +1,50 @@
+@use '@angular/material' as mat;
+
+$my-brand-headline-1: mat.define-typography-level(
+  $font-family: 'Libre Baskerville',
+  $font-weight: 400,
+  $font-size: 96px,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
+
+$my-brand-headline-3: mat.define-typography-level(
+  $font-family: 'Inter',
+  $font-weight: 200,
+  $font-size: 38px,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
+
+$my-brand-headline-4: mat.define-typography-level(
+  $font-family: 'Libre Baskerville',
+  $font-weight: 400,
+  $font-size: 34px,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
+
+$my-brand-headline-5: mat.define-typography-level(
+  $font-family: 'Inter',
+  $font-weight: 200,
+  $font-size: 1rem,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
+
+
+$my_brand-typography: mat.define-typography-config(
+  $font-family: 'Inter, serif',
+  $display-4:    $my-brand-headline-1,
+  $display-3:    mat.define-typography-level(56px, 56px, 400, $letter-spacing: -0.02em),
+  $display-2:    $my-brand-headline-3,
+  $display-1:    $my-brand-headline-4,
+  $headline:     $my-brand-headline-5,
+  $title:        mat.define-typography-level(20px, 32px, 500),
+  $subheading-2: mat.define-typography-level(16px, 28px, 400),
+  $subheading-1: mat.define-typography-level(15px, 24px, 400),
+  $body-2:       mat.define-typography-level(14px, 24px, 500),
+  $body-1:       mat.define-typography-level(14px, 20px, 400),
+  $caption:      mat.define-typography-level(12px, 20px, 400),
+  $button:       mat.define-typography-level(14px, 14px, 500),
+  );

@@ -1,0 +1,32 @@
+.mat-toolbar-row, .mat-toolbar-single-row {
+  height: 3rem;
+}
+
+.front-toolbar {
+  background-color: #FAF3DF;
+  border-bottom: #3B322D 1px solid;
+}
+
+.selected {
+  color: black;
+  font-weight: 300;
+}
+
+.links-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  width: 100%;
+}
+
+.navigation-link {
+  color: #3B322D;
+  margin-right: 40px;
+  margin-bottom: 0;
+}
+.navigation-link:first-child {
+  margin-right: auto;
+}
+.navigation-link:last-child {
+  margin-right: 0;
+}
