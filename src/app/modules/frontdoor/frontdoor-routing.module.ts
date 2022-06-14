@@ -22,6 +22,12 @@ const routes: Routes = [
         path: 'about',
         component: AboutPageComponent,
       },
+      {
+        path:'curriculum',
+        loadChildren: () => import('../curriculum/curriculum.module').then(
+          (m) => m.CurriculumModule
+        ),
+      }
     ]
   },
 ];

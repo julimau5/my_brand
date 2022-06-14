@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -24,6 +25,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatInputModule,
     MatTooltipModule,
+    MatListModule,
   ],
   exports: [
     CommonModule,
@@ -34,6 +36,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatInputModule,
     MatTooltipModule,
+    MatListModule,
   ],
 })
 export class CoreModule {}

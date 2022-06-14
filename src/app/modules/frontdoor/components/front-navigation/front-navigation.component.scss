@@ -1,10 +1,13 @@
-.mat-toolbar-row, .mat-toolbar-single-row {
-  height: 3rem;
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 48px;
 }
 
 .front-toolbar {
-  background-color: #FAF3DF;
-  border-bottom: #3B322D 1px solid;
+  background-color: #faf3df;
+  border-bottom: #3b322d 1px solid;
+  z-index: 3;
+  position: absolute;
 }
 
 .selected {
@@ -15,12 +18,13 @@
 .links-container {
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: flex-end;
   width: 100%;
+  z-index: 1;
 }
 
 .navigation-link {
-  color: #3B322D;
+  color: #3b322d;
   margin-right: 40px;
   margin-bottom: 0;
 }
