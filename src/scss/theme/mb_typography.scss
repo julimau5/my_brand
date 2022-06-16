@@ -3,7 +3,7 @@
 $my-brand-headline-1: mat.define-typography-level(
   $font-family: 'Libre Baskerville',
   $font-weight: 400,
-  $font-size: 96px,
+  $font-size: 6vw,
   $line-height: 1,
   $letter-spacing: normal,
 );
@@ -11,8 +11,8 @@ $my-brand-headline-1: mat.define-typography-level(
 $my-brand-headline-3: mat.define-typography-level(
   $font-family: 'Inter',
   $font-weight: 200,
-  $font-size: 38px,
-  $line-height: 1,
+  $font-size: 3vw,
+  $line-height: 4vw,
   $letter-spacing: normal,
 );
 
