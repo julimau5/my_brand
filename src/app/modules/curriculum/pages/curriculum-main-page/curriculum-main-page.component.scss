@@ -1,6 +1,6 @@
 .main-vertical-accordion-container {
   width: 100vw;
-  height: calc(100vh - 48px);
+  height: calc(100% - 48px);
   position: fixed;
   display: flex;
   top: 0;
@@ -106,9 +106,6 @@
 
   .accordion-section {
     flex-direction: column;
-  }
-
-  .section-content {
     overflow-y: auto;
   }
 }
