@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
+import { map, shareReplay } from 'rxjs/operators';
+import { modalMenuAnimation } from '../../../core/animations/navbar.animations';
 
 @Component({
   selector: 'app-front-navigation',
   templateUrl: './front-navigation.component.html',
   styleUrls: ['./front-navigation.component.scss'],
+  animations: [modalMenuAnimation],
 })
 export class FrontNavigationComponent implements OnInit {
   links: NavLink[] = [
@@ -15,8 +20,20 @@ export class FrontNavigationComponent implements OnInit {
     { label: 'About', extension: '/about', active: false },
   ];
   route!: string;
+  activeLink!: NavLink;
 
-  constructor(private _router: Router) {
+  isColapsed: Observable<boolean> = this.breakpointObserver
+    .observe([Breakpoints.XSmall])
+    .pipe(
+      map((result) => result.matches),
+      shareReplay()
+    );
+  isOpened: boolean = false;
+
+  constructor(
+    private _router: Router,
+    private breakpointObserver: BreakpointObserver
+  ) {
     this.initNav();
   }
 
@@ -28,38 +45,22 @@ export class FrontNavigationComponent implements OnInit {
   }
 
   resolveLinks(route: string) {
-    switch (true) {
-      case route.includes('/home'):
-        this.links.forEach((link) => {
-          link.active = link.label === 'Home';
-        });
-        break;
-      case route.includes('/curriculum'):
-        this.links.forEach((link) => {
-          link.active = link.label === 'Curriculum';
-        });
-        break;
-      case route.includes('/blog'):
-        this.links.forEach((link) => {
-          link.active = link.label === 'Blog';
-        });
-        break;
-      case route.includes('/gallery'):
-        this.links.forEach((link) => {
-          link.active = link.label === 'Gallery';
-        });
-        break;
-      case route.includes('/about'):
-        this.links.forEach((link) => {
-          link.active = link.label === 'About';
-        });
-        break;
-    }
+    this.links.forEach((link) => {
+      if (route.includes(link.extension)) {
+        this.activeLink = link;
+        this.isOpened = false;
+      }
+    });
   }
 
-  navigateTo(extension: string){
-    this._router.navigate([`/f_index${extension}`])
-      .then(()=> this.resolveLinks(extension) );
+  navigateTo(link: NavLink) {
+    this._router
+      .navigate([`/f_index${link.extension}`])
+      .then(() => this.resolveLinks(link.extension));
+  }
+
+  toogleMenu() {
+    this.isOpened = !this.isOpened;
   }
 }
 

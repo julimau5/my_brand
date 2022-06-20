@@ -1,13 +1,34 @@
 <mat-toolbar class="front-toolbar">
-  <div class="links-container">
+  <div class="links-container" *ngIf="!(isColapsed | async)">
     <div
       class="navigation-link mat-headline"
       *ngFor="let link of links"
-      (click)="navigateTo(link.extension)"
-      [ngClass]="link.active ? 'selected' : ''"
+      (click)="navigateTo(link)"
+      [ngClass]="link === activeLink ? 'selected' : ''"
     >
       {{ link.label }}
     </div>
   </div>
+  <div class="colapsed-navigation" *ngIf="isColapsed | async">
+    <button mat-icon-button (click)="toogleMenu()" *ngIf="!isOpened">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="mobile-page-title selected" *ngIf="!isOpened">
+        {{ activeLink.label }}
+    </div>
+  </div>
 </mat-toolbar>
 
+<div class="modal-menu-container" @modalMenuAnimation *ngIf="(isColapsed | async) && isOpened">
+  <div
+    class="navigation-modal-link mat-headline"
+    *ngFor="let link of links"
+    (click)="navigateTo(link)"
+    [ngClass]="link === activeLink ? 'selected' : ''"
+  >
+    {{ link.label }}
+  </div>
+  <button mat-icon-button (click)="toogleMenu()" *ngIf="isOpened">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>

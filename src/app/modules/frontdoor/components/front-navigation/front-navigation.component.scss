@@ -1,3 +1,5 @@
+@import '../../../../../scss/variables/am_variables';
+
 .mat-toolbar-row,
 .mat-toolbar-single-row {
   height: 48px;
@@ -12,7 +14,9 @@
 
 .selected {
   color: black;
-  font-weight: 300;
+  font-weight: 400;
+  font-family: Libre Baskerville;
+  font-style: italic;
 }
 
 .links-container {
@@ -27,10 +31,43 @@
   color: #3b322d;
   margin-right: 40px;
   margin-bottom: 0;
+  cursor: pointer;
 }
 .navigation-link:first-child {
   margin-right: auto;
 }
 .navigation-link:last-child {
   margin-right: 0;
+}
+
+.colapsed-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.modal-menu-container {
+  width: 100%;
+  position: fixed;
+  z-index: 3;
+  background-color: #faf3df;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px black solid;
+}
+
+.mobile-page-title {
+  order: 1;
+}
+
+.navigation-modal-link {
+  cursor: pointer;
+  height: 10vh;
+  margin: 3vh 0px;
+  align-items: center;
+  display: flex;
+  font-size: 8vw;
 }
